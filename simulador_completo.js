@@ -188,6 +188,125 @@ function guardarCliente(){
     limpiar();
 }
 
+function calcularCredito(){
+
+
+let cedula =
+recuperaraTexto("cedulaCredito");
+
+
+let cliente =
+buscarCliente(cedula);
+
+
+
+if(cliente==null){
+
+mostrarTexto(
+"resultadoCredito",
+"Primero busque un cliente"
+);
+
+return;
+
+}
+
+
+
+let monto =
+recuperarFloat("montoCredito");
+
+
+let plazo =
+recuperarInt("plazoCredito");
+
+
+
+let capacidadPago =
+cliente.ingresos - cliente.egresos;
+
+
+
+let interes =
+calcularInteresSimple(
+monto,
+tasaInteres,
+plazo
+);
+
+
+
+let totalPagar =
+monto + interes;
+
+
+
+let cuota =
+totalPagar /
+(plazo*12);
+
+
+
+
+let resultado;
+
+
+
+if(cuota <= capacidadPago){
+
+resultado="APROBADO";
+
+
+}else{
+
+resultado="RECHAZADO";
+
+}
+
+
+
+let caja =
+document.getElementById(
+"resultadoCredito"
+);
+
+
+
+caja.innerHTML=`
+
+Capacidad de pago:
+${capacidadPago}
+<br>
+
+Total a pagar:
+${totalPagar}
+<br>
+
+Cuota mensual:
+${cuota.toFixed(2)}
+
+<br>
+
+RESULTADO:
+${resultado}
+
+`;
+
+
+
+if(resultado=="APROBADO"){
+
+caja.className="aprobado";
+
+}else{
+
+caja.className="rechazado";
+
+}
+
+
+}
+
 function limpiar(){
     mostrarTextoEnCaja("txtCedula","");
     mostrarTextoEnCaja("txtNombre","");
@@ -195,4 +314,10 @@ function limpiar(){
     mostrarTextoEnCaja("txtIngresos","");
     mostrarTextoEnCaja("txtEgresos","");
     clienteSeleccionado=null;
+}
+
+function calcularInteresSimple(monto,tasa,plazo){
+return monto *
+(tasa/100) *
+plazo;
 }
