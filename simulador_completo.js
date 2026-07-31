@@ -380,3 +380,29 @@ return monto *
 (tasa/100) *
 plazo;
 }
+
+function buscarCreditos(cedula){
+
+
+let encontrados=[];
+
+
+for(let i=0;i<creditos.length;i++){
+
+
+if(creditos[i].cedula==cedula){
+
+encontrados.push(
+creditos[i]
+);
+
+}
+
+
+}
+
+
+return encontrados;
+
+
+}
