@@ -1,4 +1,3 @@
-
   let clientes = [];
   let creditos = [];
 
@@ -296,13 +295,59 @@ ${resultado}
 
 if(resultado=="APROBADO"){
 
-caja.className="aprobado";
+    caja.className="aprobado";
+
+    document.getElementById(
+        "btnAsignarCredito"
+    ).disabled=false;
+
 
 }else{
 
-caja.className="rechazado";
+    caja.className="rechazado";
+
+    document.getElementById(
+        "btnAsignarCredito"
+    ).disabled=true;
 
 }
+
+montoCalculado=monto;
+
+plazoCalculado=plazo;
+
+cuotaCalculada=cuota;
+
+
+}
+
+function asignarCredito(){
+
+
+let credito={
+
+    cedula:clienteSeleccionado.cedula,
+
+    nombre:clienteSeleccionado.nombre,
+
+    apellido:clienteSeleccionado.apellido,
+
+    monto:montoCalculado,
+
+    tasa:tasaInteres,
+
+    plazo:plazoCalculado,
+
+    cuota:cuotaCalculada
+
+};
+
+
+
+creditos.push(credito);
+
+
+alert("Crédito asignado correctamente");
 
 
 }
