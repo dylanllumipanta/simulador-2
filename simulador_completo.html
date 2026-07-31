@@ -25,6 +25,10 @@ Clientes
 Créditos
 </button>
 
+<button onclick="mostrarSeccion('historial')">
+Créditos Registrados
+</button>
+
 </nav>
 <section id="parametros" class="activa">
   <h2>Configurar Parámetros</h2>
@@ -140,6 +144,68 @@ Calcular Crédito
 <div id="resultadoCredito">
 
 </div>
+
+
+</section>
+
+<section id="historial">
+
+
+<h2>
+Historial de Créditos
+</h2>
+
+
+<input 
+type="text"
+id="cedulaHistorial"
+placeholder="Cédula cliente">
+
+
+<button onclick="buscarCreditosCliente()">
+
+Buscar
+
+</button>
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Cédula</th>
+
+<th>Nombre</th>
+
+<th>Apellido</th>
+
+<th>Monto</th>
+
+<th>Tasa</th>
+
+<th>Plazo</th>
+
+<th>Cuota</th>
+
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="tablaCreditos">
+
+
+</tbody>
+
+
+
+</table>
 
 
 </section>

@@ -8,9 +8,23 @@
   let plazoCalculado = 0;
   let creditoAprobado = false;
 
-  function ocultarSecciones() {
-    document.getElementById("parametros").classList.remove("activa");
-    document.getElementById("clientes").classList.remove("activa");
+function ocultarSecciones(){
+
+document.getElementById("parametros")
+.classList.remove("activa");
+
+
+document.getElementById("clientes")
+.classList.remove("activa");
+
+
+document.getElementById("creditos")
+.classList.remove("activa");
+
+
+document.getElementById("historial")
+.classList.remove("activa");
+
 
 }
 
