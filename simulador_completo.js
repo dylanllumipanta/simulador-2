@@ -56,5 +56,36 @@ function guardarCliente(){
 
 }
 
+function pintarClientes(){
+    let contenido="";
+    let cliente;
+    for(let i=0;i<clientes.length;i++){
+        cliente=clientes[i];
+        contenido+=`
+        <tr>
+
+            <td>${cliente.cedula}</td>
+            <td>${cliente.nombre}</td>
+            <td>${cliente.apellido}</td>
+            <td>${cliente.ingresos}</td>
+            <td>${cliente.egresos}</td>
+
+            <td>
+
+            <button
+            onclick="seleccionarCliente('${cliente.cedula}')">
+            Actualizar
+            </button>
+
+            </td>
+
+        </tr>
+        `;
+
+    }
+    document.getElementById("tablaClientes").innerHTML=contenido;
+
+}
+
   
 //Para recuperar o mostrar información usar los métodos de la clase utilitarios, puede agregar métodos adicionales en utilitarios
