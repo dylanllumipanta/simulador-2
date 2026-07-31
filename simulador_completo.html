@@ -12,15 +12,20 @@
 </header>
 
 <nav>
-  <button onclick="mostrarSeccion('parametros')">
-    Parámetros
-  </button>
 
-  <button onclick="mostrarSeccion('clientes')">
-    Clientes
-  </button>
+<button onclick="mostrarSeccion('parametros')">
+Parámetros
+</button>
+
+<button onclick="mostrarSeccion('clientes')">
+Clientes
+</button>
+
+<button onclick="mostrarSeccion('creditos')">
+Créditos
+</button>
+
 </nav>
-
 <section id="parametros" class="activa">
   <h2>Configurar Parámetros</h2>
 
@@ -67,6 +72,67 @@
 
     </tbody>
   </table>
+</section>
+
+<section id="creditos">
+
+<h2>Simulación de Crédito</h2>
+
+
+<label>Cédula del cliente:</label>
+
+<input 
+type="text" 
+id="cedulaCredito"
+placeholder="Ingrese cédula">
+
+
+<button onclick="buscarClienteCredito()">
+Buscar Cliente
+</button>
+
+
+<div id="datosClienteCredito">
+
+</div>
+
+
+<hr>
+
+
+<h3>Datos del crédito</h3>
+
+
+<label>Monto solicitado:</label>
+
+<input 
+type="number"
+id="montoCredito">
+
+
+<br>
+
+
+<label>Plazo (años):</label>
+
+<input 
+type="number"
+id="plazoCredito">
+
+
+<br>
+
+
+<button onclick="calcularCredito()">
+Calcular Crédito
+</button>
+
+
+<div id="resultadoCredito">
+
+</div>
+
+
 </section>
 
 
