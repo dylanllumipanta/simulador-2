@@ -122,4 +122,17 @@ function seleccionarCliente(cedula){
     );
 }
   
+function guardarCliente(){
+    if(clienteSeleccionado==null){
+    }else{
+        clienteSeleccionado.nombre=recuperaraTexto("txtNombre");
+        clienteSeleccionado.apellido=recuperaraTexto("txtApellido");
+        clienteSeleccionado.ingresos=recuperarFloat("txtIngresos");
+        clienteSeleccionado.egresos=recuperarFloat("txtEgresos");
+        clienteSeleccionado=null;
+    }
+    pintarClientes();
+    limpiar();
+
+}
 //Para recuperar o mostrar información usar los métodos de la clase utilitarios, puede agregar métodos adicionales en utilitarios
