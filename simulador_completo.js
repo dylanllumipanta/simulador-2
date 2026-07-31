@@ -454,3 +454,22 @@ document.getElementById(
 
 
 }
+
+function buscarCreditosCliente(){
+
+
+let cedula =
+recuperaraTexto("cedulaHistorial");
+
+
+
+let resultado =
+buscarCreditos(cedula);
+
+
+
+pintarCreditos(resultado);
+
+
+
+}
