@@ -406,3 +406,51 @@ return encontrados;
 
 
 }
+
+function pintarCreditos(lista){
+
+
+let contenido="";
+
+
+for(let i=0;i<lista.length;i++){
+
+
+let credito=lista[i];
+
+
+contenido+=`
+
+<tr>
+
+<td>${credito.cedula}</td>
+
+<td>${credito.nombre}</td>
+
+<td>${credito.apellido}</td>
+
+<td>${credito.monto}</td>
+
+<td>${credito.tasa}%</td>
+
+<td>${credito.plazo}</td>
+
+<td>${credito.cuota.toFixed(2)}</td>
+
+
+</tr>
+
+
+`;
+
+}
+
+
+
+document.getElementById(
+"tablaCreditos"
+).innerHTML=contenido;
+
+
+
+}
