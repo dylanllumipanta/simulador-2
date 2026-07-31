@@ -98,5 +98,28 @@ function buscarCliente(cedula){
     return null;
 }
 
+function seleccionarCliente(cedula){
+    clienteSeleccionado=buscarCliente(cedula);
+    mostrarTextoEnCaja(
+        "txtCedula",
+        clienteSeleccionado.cedula
+    );
+    mostrarTextoEnCaja(
+        "txtNombre",
+        clienteSeleccionado.nombre
+    );
+    mostrarTextoEnCaja(
+        "txtApellido",
+        clienteSeleccionado.apellido
+    );
+    mostrarTextoEnCaja(
+        "txtIngresos",
+        clienteSeleccionado.ingresos
+    );
+    mostrarTextoEnCaja(
+        "txtEgresos",
+        clienteSeleccionado.egresos
+    );
+}
   
 //Para recuperar o mostrar información usar los métodos de la clase utilitarios, puede agregar métodos adicionales en utilitarios
