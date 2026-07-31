@@ -87,5 +87,16 @@ function pintarClientes(){
 
 }
 
+function buscarCliente(cedula){
+    let cliente;
+    for(let i=0;i<clientes.length;i++){
+        cliente=clientes[i];
+        if(cliente.cedula==cedula){
+            return cliente;
+        }
+    }
+    return null;
+}
+
   
 //Para recuperar o mostrar información usar los métodos de la clase utilitarios, puede agregar métodos adicionales en utilitarios
