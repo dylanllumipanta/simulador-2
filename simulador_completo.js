@@ -208,8 +208,9 @@ let cedula =
 recuperaraTexto("cedulaCredito");
 
 
-let cliente =
-buscarCliente(cedula);
+let cliente = buscarCliente(cedula);
+
+clienteSeleccionado = cliente;
 
 
 
@@ -309,60 +310,55 @@ ${resultado}
 
 if(resultado=="APROBADO"){
 
+    creditoAprobado = true;
+
     caja.className="aprobado";
 
-    document.getElementById(
-        "btnAsignarCredito"
-    ).disabled=false;
-
+    document.getElementById("btnAsignarCredito").disabled = false;
 
 }else{
 
+    creditoAprobado = false;
+
     caja.className="rechazado";
 
-    document.getElementById(
-        "btnAsignarCredito"
-    ).disabled=true;
+    document.getElementById("btnAsignarCredito").disabled = true;
 
 }
 
-montoCalculado=monto;
-
-plazoCalculado=plazo;
-
-cuotaCalculada=cuota;
+montoCalculado = monto;
+plazoCalculado = plazo;
+cuotaCalculada = cuota;
 
 
 }
 
 function asignarCredito(){
 
+    if(!creditoAprobado){
+        alert("El crédito no está aprobado.");
+        return;
+    }
 
-let credito={
+    let credito = {
 
-    cedula:clienteSeleccionado.cedula,
+        cedula: clienteSeleccionado.cedula,
+        nombre: clienteSeleccionado.nombre,
+        apellido: clienteSeleccionado.apellido,
+        monto: montoCalculado,
+        tasa: tasaInteres,
+        plazo: plazoCalculado,
+        cuota: cuotaCalculada
 
-    nombre:clienteSeleccionado.nombre,
+    };
 
-    apellido:clienteSeleccionado.apellido,
+    creditos.push(credito);
 
-    monto:montoCalculado,
+    alert("Crédito asignado correctamente");
 
-    tasa:tasaInteres,
+    document.getElementById("btnAsignarCredito").disabled = true;
 
-    plazo:plazoCalculado,
-
-    cuota:cuotaCalculada
-
-};
-
-
-
-creditos.push(credito);
-
-
-alert("Crédito asignado correctamente");
-
+    creditoAprobado = false;
 
 }
 
@@ -457,19 +453,18 @@ document.getElementById(
 
 function buscarCreditosCliente(){
 
+    let cedula = recuperaraTexto("cedulaHistorial");
 
-let cedula =
-recuperaraTexto("cedulaHistorial");
+    if(cedula==""){
 
+        pintarCreditos(creditos);
 
+        return;
 
-let resultado =
-buscarCreditos(cedula);
+    }
 
+    let resultado = buscarCreditos(cedula);
 
-
-pintarCreditos(resultado);
-
-
+    pintarCreditos(resultado);
 
 }
